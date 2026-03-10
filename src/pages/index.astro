@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+function img(folder: string, filename: string): string {
+  return `/images/${folder}/${encodeURIComponent(filename)}`;
+}
 ---
 
 <Layout
@@ -20,11 +24,19 @@ import Layout from '../layouts/Layout.astro';
         loop
         playsinline
         aria-hidden="true"
-        poster="/images/hero/hero-poster.jpg"
+        poster={img('hero', 'Yakuniki Sawa Hero.jpg')}
       >
         <source src="/images/hero/wagyu-sizzle.mp4" type="video/mp4" />
-        <!-- Fallback: hero image -->
+        <source src="/images/hero/wagyu-sizzle.webm" type="video/webm" />
+        <!-- Fallback image shown via poster when no video -->
       </video>
+      <!-- Static hero image fallback (shown when video not available) -->
+      <img
+        src={img('hero', 'Yakuniki Sawa Hero.jpg')}
+        alt="Premium Wagyu sizzling at Yakiniku SAWA Pattaya"
+        class="absolute inset-0 w-full h-full object-cover -z-10"
+        aria-hidden="true"
+      />
       <!-- Gradient overlay -->
       <div class="hero-overlay absolute inset-0"></div>
       <!-- Ember particles overlay -->
@@ -128,20 +140,18 @@ import Layout from '../layouts/Layout.astro';
           <div class="grid grid-cols-2 gap-3">
             <div class="aspect-[3/4] bg-ink card-ink overflow-hidden">
               <img
-                src="/images/experience/interior-1.jpg"
+                src={img('experience', 'interior  (1).jpg')}
                 alt="SAWA restaurant elegant interior"
                 class="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-500"
                 loading="lazy"
-                onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-ember/30 font-oswald text-xs tracking-wider\'>INTERIOR</span></div>'"
               />
             </div>
             <div class="aspect-[3/4] bg-ink card-ink overflow-hidden mt-8">
               <img
-                src="/images/experience/dining-1.jpg"
-                alt="Guests enjoying Wagyu at SAWA"
+                src={img('experience', 'Yakuniki Sawa (1).jpg')}
+                alt="Guests enjoying Wagyu at SAWA Pattaya"
                 class="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-500"
                 loading="lazy"
-                onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-ember/30 font-oswald text-xs tracking-wider\'>DINING</span></div>'"
               />
             </div>
           </div>
@@ -176,12 +186,12 @@ import Layout from '../layouts/Layout.astro';
       <!-- Experience photo grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
         {[
-          { src: '/images/experience/wagyu-marbling.jpg', alt: 'Premium A5 Wagyu marbling close-up', label: 'A5 Wagyu' },
-          { src: '/images/experience/interior-2.jpg', alt: 'SAWA restaurant elegant atmosphere', label: 'Ambiance' },
-          { src: '/images/experience/grill.jpg', alt: 'Wagyu sizzling on the grill', label: 'The Grill' },
-          { src: '/images/experience/dining-2.jpg', alt: 'Happy guests dining at SAWA', label: 'Dining' },
-          { src: '/images/experience/sake.jpg', alt: 'Premium Japanese sake selection', label: 'Sake & Spirits' },
-          { src: '/images/experience/interior-3.jpg', alt: 'SAWA private dining area', label: 'Private Dining' },
+          { src: img('food', 'wagyu-marbling.jpg'),          alt: 'Premium A5 Wagyu marbling close-up',     label: 'A5 Wagyu' },
+          { src: img('experience', 'interior  (2).jpg'),     alt: 'SAWA restaurant elegant atmosphere',     label: 'Ambiance' },
+          { src: img('experience', 'Yakuniki Sawa (9).jpg'), alt: 'Wagyu sizzling on the grill at SAWA',   label: 'The Grill' },
+          { src: img('experience', 'Yakuniki Sawa (2).jpg'), alt: 'Happy guests dining at SAWA Pattaya',   label: 'Dining' },
+          { src: img('experience', 'Yakuniki Sawa (3).jpg'), alt: 'Premium Japanese sake at SAWA',         label: 'Sake & Spirits' },
+          { src: img('experience', 'interior  (3).jpg'),     alt: 'SAWA restaurant private dining area',   label: 'Private Dining' },
         ].map(item => (
           <div class="relative aspect-square bg-charcoal card-ink overflow-hidden group">
             <img
@@ -189,7 +199,6 @@ import Layout from '../layouts/Layout.astro';
               alt={item.alt}
               class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700"
               loading="lazy"
-              onerror="this.style.display='none'"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
             <div class="absolute bottom-4 left-4">

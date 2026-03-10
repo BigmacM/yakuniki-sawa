@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 
 const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
+
+function img(folder: string, filename: string): string {
+  return `/images/${folder}/${encodeURIComponent(filename)}`;
+}
 ---
 
 <Layout
@@ -67,10 +71,10 @@ const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
 
         <div class="grid grid-cols-2 gap-4">
           {[
-            { src: '/images/food/wagyu-marbling-1.jpg', alt: 'A5 Wagyu beef with exceptional marbling', label: 'A5 Marbling' },
-            { src: '/images/food/wagyu-cuts.jpg', alt: 'Premium Wagyu cuts on display', label: 'Premium Cuts' },
-            { src: '/images/food/wagyu-grill.jpg', alt: 'Wagyu sizzling on the grill', label: 'On the Grill' },
-            { src: '/images/food/wagyu-plated.jpg', alt: 'Beautifully plated Wagyu at SAWA', label: 'Plated' },
+            { src: img('food', 'wagyu-marbling.jpg'), alt: 'A5 Wagyu beef with exceptional marbling', label: 'A5 Marbling' },
+            { src: img('food', 'wagyu-cuts.jpg'),     alt: 'Premium Wagyu cuts on display',           label: 'Premium Cuts' },
+            { src: img('food', 'wagyu-grill.jpg'),    alt: 'Wagyu sizzling on the grill',             label: 'On the Grill' },
+            { src: img('food', 'wagyu-plated.jpg'),   alt: 'Beautifully plated Wagyu at SAWA',        label: 'Plated' },
           ].map(item => (
             <div class="aspect-square bg-charcoal card-ink overflow-hidden group relative">
               <img
@@ -78,7 +82,6 @@ const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
                 alt={item.alt}
                 class="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                 loading="lazy"
-                onerror="this.style.display='none'"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent flex items-end p-3">
                 <span class="font-oswald text-ember text-xs tracking-widest uppercase">{item.label}</span>
@@ -142,11 +145,10 @@ const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
         <div class="relative order-2 lg:order-1">
           <div class="aspect-[4/3] bg-charcoal card-ink overflow-hidden">
             <img
-              src="/images/experience/smoke-system.jpg"
-              alt="SAWA's advanced smoke management ventilation system"
+              src={img('experience', 'interior  (4).jpg')}
+              alt="SAWA's smoke-managed dining environment"
               class="w-full h-full object-cover opacity-80"
               loading="lazy"
-              onerror="this.style.display='none'"
             />
           </div>
           <!-- Accent box -->
@@ -266,11 +268,11 @@ const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { src: '/images/experience/interior-main.jpg', alt: 'Main dining hall of SAWA Pattaya', span: 'lg:col-span-2 lg:row-span-2' },
-          { src: '/images/experience/interior-detail.jpg', alt: 'Elegant table setting at SAWA' },
-          { src: '/images/experience/bar.jpg', alt: 'SAWA sake bar' },
-          { src: '/images/experience/private.jpg', alt: 'Private dining room' },
-          { src: '/images/experience/entrance.jpg', alt: 'SAWA restaurant entrance' },
+          { src: img('experience', 'interior  (1).jpg'), alt: 'Main dining hall of SAWA Pattaya',        span: 'lg:col-span-2 lg:row-span-2' },
+          { src: img('experience', 'interior  (5).jpg'), alt: 'Elegant table setting at SAWA' },
+          { src: img('experience', 'interior  (6).jpg'), alt: 'SAWA restaurant bar and sake selection' },
+          { src: img('experience', 'interior  (7).jpg'), alt: 'Private dining area at SAWA' },
+          { src: img('experience', 'interior  (2).jpg'), alt: 'SAWA restaurant entrance and ambiance' },
         ].map(item => (
           <div class:list={['relative bg-charcoal card-ink overflow-hidden group aspect-square', item.span]}>
             <img
@@ -278,7 +280,6 @@ const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
               alt={item.alt}
               class="w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700"
               loading="lazy"
-              onerror="this.style.display='none'"
             />
           </div>
         ))}
