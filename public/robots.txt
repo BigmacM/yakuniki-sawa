@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yakiniku-sawa-pattaya.com/sitemap-index.xml

@@ -1,0 +1,361 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Yakiniku SAWA Pattaya | No.1 Japanese Wagyu BBQ Restaurant"
+  description="Discover Pattaya's finest Japanese Yakiniku experience at SAWA. Premium A5-rank Wagyu beef, authentic Japanese grilling tradition, and a sophisticated smoke-managed environment. Book your table now."
+  page="home"
+>
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+      <video
+        class="w-full h-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+        poster="/images/hero/hero-poster.jpg"
+      >
+        <source src="/images/hero/wagyu-sizzle.mp4" type="video/mp4" />
+        <!-- Fallback: hero image -->
+      </video>
+      <!-- Gradient overlay -->
+      <div class="hero-overlay absolute inset-0"></div>
+      <!-- Ember particles overlay -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
+      <!-- Japanese badge -->
+      <div class="inline-flex items-center gap-3 mb-8 animate-fade-in">
+        <div class="h-px w-12 bg-ember"></div>
+        <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">No.1 Japanese Style Yakiniku · Pattaya</span>
+        <div class="h-px w-12 bg-ember"></div>
+      </div>
+
+      <h1 class="section-heading text-5xl md:text-7xl lg:text-8xl text-washi mb-4 animate-slide-up leading-none">
+        YAKINIKU<br />
+        <span class="text-ember text-shadow-ember">SAWA</span>
+      </h1>
+
+      <p class="font-open-sans text-washi/80 text-lg md:text-xl max-w-2xl mx-auto mb-4 animate-fade-in leading-relaxed">
+        Premium Japanese Wagyu Yakiniku · Pattaya
+      </p>
+
+      <p class="font-open-sans text-washi/60 text-sm md:text-base max-w-xl mx-auto mb-10 animate-fade-in leading-relaxed">
+        Experience the artistry of Japanese fire — where A5-rank Wagyu meets centuries-old grilling tradition in the heart of Pattaya.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up">
+        <a href="/contact#reserve" class="btn-sake w-full sm:w-auto text-center">
+          Reserve Your Table
+        </a>
+        <a href="/menu" class="btn-outline w-full sm:w-auto text-center">
+          Explore Menu
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10" aria-hidden="true">
+      <span class="font-open-sans text-[10px] tracking-[0.3em] text-ember/70 uppercase">Scroll</span>
+      <svg class="w-5 h-5 text-ember/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       VALUE PROPOSITION STRIP
+  ══════════════════════════════════════════════════ -->
+  <section class="bg-ember py-4" aria-label="Key highlights">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-charcoal">
+        {[
+          { icon: '🥩', text: 'Genuine A5-Rank Wagyu' },
+          { icon: '🔥', text: 'Smoke-Managed Environment' },
+          { icon: '🍶', text: 'Authentic Japanese Sake' },
+          { icon: '📍', text: 'Tree Town, Pattaya' },
+        ].map(item => (
+          <div class="flex items-center gap-2">
+            <span class="text-lg" aria-hidden="true">{item.icon}</span>
+            <span class="font-oswald text-sm tracking-widest uppercase font-semibold">{item.text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       THE SAWA STORY
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-charcoal" aria-labelledby="story-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="h-px w-8 bg-ember"></div>
+            <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">Our Story</span>
+          </div>
+          <h2 id="story-heading" class="section-heading text-4xl md:text-5xl text-washi mb-6 leading-tight">
+            Where Fire Meets<br /><span class="text-ember">Perfection</span>
+          </h2>
+          <div class="ember-divider ml-0"></div>
+          <div class="space-y-4 text-washi/70 leading-relaxed">
+            <p>
+              At Yakiniku SAWA, we believe in the sacred relationship between premium Wagyu and the ancient art of Japanese grilling. Every cut is sourced directly from Japan's finest prefectures, where Wagyu cattle are raised with meticulous care for generations.
+            </p>
+            <p>
+              Our smoke-managed grilling environment ensures that every bite delivers the full spectrum of flavors — the delicate sweetness of marbled fat, the rich depth of aged beef, and the subtle char that only live fire can provide.
+            </p>
+            <p>
+              We are proud to hold the distinction of being <strong class="text-ember">Pattaya's No.1 Japanese style Yakiniku</strong> restaurant, serving discerning guests who understand that true luxury is found in simplicity perfected.
+            </p>
+          </div>
+          <div class="mt-8">
+            <a href="/experience" class="btn-outline inline-flex">Discover Our Story</a>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 relative">
+          <!-- Image grid for experience photos -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="aspect-[3/4] bg-ink card-ink overflow-hidden">
+              <img
+                src="/images/experience/interior-1.jpg"
+                alt="SAWA restaurant elegant interior"
+                class="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-500"
+                loading="lazy"
+                onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-ember/30 font-oswald text-xs tracking-wider\'>INTERIOR</span></div>'"
+              />
+            </div>
+            <div class="aspect-[3/4] bg-ink card-ink overflow-hidden mt-8">
+              <img
+                src="/images/experience/dining-1.jpg"
+                alt="Guests enjoying Wagyu at SAWA"
+                class="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-500"
+                loading="lazy"
+                onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-ember/30 font-oswald text-xs tracking-wider\'>DINING</span></div>'"
+              />
+            </div>
+          </div>
+          <!-- Decorative ember accent -->
+          <div class="absolute -bottom-4 -left-4 w-24 h-24 border border-ember/20 -z-10"></div>
+          <div class="absolute -top-4 -right-4 w-16 h-16 border border-ember/10 -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WAGYU EXPERIENCE GRID
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-ink" aria-labelledby="experience-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="h-px w-8 bg-ember"></div>
+          <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">The SAWA Experience</span>
+          <div class="h-px w-8 bg-ember"></div>
+        </div>
+        <h2 id="experience-heading" class="section-heading text-4xl md:text-5xl text-washi">
+          Crafted for <span class="text-ember">Connoisseurs</span>
+        </h2>
+        <div class="ember-divider"></div>
+        <p class="text-washi/60 max-w-2xl mx-auto leading-relaxed">
+          Every detail at SAWA is designed to elevate the Yakiniku experience — from the sourcing of our Wagyu to the precision of our smoke management system.
+        </p>
+      </div>
+
+      <!-- Experience photo grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+        {[
+          { src: '/images/experience/wagyu-marbling.jpg', alt: 'Premium A5 Wagyu marbling close-up', label: 'A5 Wagyu' },
+          { src: '/images/experience/interior-2.jpg', alt: 'SAWA restaurant elegant atmosphere', label: 'Ambiance' },
+          { src: '/images/experience/grill.jpg', alt: 'Wagyu sizzling on the grill', label: 'The Grill' },
+          { src: '/images/experience/dining-2.jpg', alt: 'Happy guests dining at SAWA', label: 'Dining' },
+          { src: '/images/experience/sake.jpg', alt: 'Premium Japanese sake selection', label: 'Sake & Spirits' },
+          { src: '/images/experience/interior-3.jpg', alt: 'SAWA private dining area', label: 'Private Dining' },
+        ].map(item => (
+          <div class="relative aspect-square bg-charcoal card-ink overflow-hidden group">
+            <img
+              src={item.src}
+              alt={item.alt}
+              class="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="font-oswald text-ember text-sm tracking-widest uppercase">{item.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center">
+        <a href="/experience" class="btn-ember inline-flex">The Full Experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURED MENU HIGHLIGHTS
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-charcoal" aria-labelledby="menu-highlights-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="h-px w-8 bg-ember"></div>
+          <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">Signature Cuts</span>
+          <div class="h-px w-8 bg-ember"></div>
+        </div>
+        <h2 id="menu-highlights-heading" class="section-heading text-4xl md:text-5xl text-washi">
+          Premium <span class="text-ember">Wagyu</span> Selection
+        </h2>
+        <div class="ember-divider"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            name: 'Premium WAGYU 5 Assorted',
+            nameJp: "Chef's Selection",
+            description: "Chef's selection of 5 premium A5 rank cuts",
+            price: '1,480฿',
+            badge: 'Chef\'s Choice',
+          },
+          {
+            name: 'Prime Rib',
+            nameJp: 'GOKUJO KARUBI',
+            description: 'Highest quality rib cut with exceptional marbling',
+            price: '980฿',
+            badge: 'Best Seller',
+          },
+          {
+            name: 'Premium Loin',
+            nameJp: 'TOKUSEN ROSU',
+            description: 'Top-tier loin cut with superior texture',
+            price: '780฿',
+            badge: 'A5 Rank',
+          },
+          {
+            name: 'Premium Top Sirloin Cap',
+            nameJp: 'TOROICHIBO',
+            description: 'Fine marbling and exceptional tenderness',
+            price: '689฿',
+            badge: 'A5 Rank',
+          },
+          {
+            name: 'Premium Top Blade',
+            nameJp: 'MISUJI',
+            description: 'Balance of rib richness and loin tenderness',
+            price: '649฿',
+            badge: 'Popular',
+          },
+          {
+            name: 'Premium WAGYU 3 Assorted',
+            nameJp: "Chef's Selection",
+            description: "Chef's selection of 3 premium A5 rank cuts",
+            price: '980฿',
+            badge: 'Great Value',
+          },
+        ].map(item => (
+          <div class="card-ink p-6 group relative overflow-hidden">
+            <!-- Background food image -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+              <div class="w-full h-full bg-ember/20"></div>
+            </div>
+
+            <div class="relative">
+              <div class="flex items-start justify-between mb-3">
+                <span class="bg-ember/10 border border-ember/30 text-ember text-[10px] font-oswald tracking-widest uppercase px-2 py-0.5">
+                  {item.badge}
+                </span>
+              </div>
+              <h3 class="font-oswald text-washi text-xl font-semibold mb-1 group-hover:text-ember transition-colors duration-300">
+                {item.name}
+              </h3>
+              <p class="font-open-sans text-ember/70 text-xs tracking-widest uppercase mb-3">{item.nameJp}</p>
+              <p class="text-washi/60 text-sm leading-relaxed mb-4">{item.description}</p>
+              <div class="flex items-center justify-between pt-4 border-t border-ember/10">
+                <span class="price-tag">{item.price}</span>
+                <span class="text-washi/40 text-xs font-open-sans">per serving</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/menu" class="btn-ember inline-flex">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TESTIMONIALS / STATS
+  ══════════════════════════════════════════════════ -->
+  <section class="py-20 px-4 sm:px-6 bg-ink border-y border-ember/20" aria-labelledby="stats-heading">
+    <div class="max-w-5xl mx-auto">
+      <h2 id="stats-heading" class="sr-only">Why Choose SAWA</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { value: 'A5', label: 'Wagyu Grade', sub: 'Highest possible' },
+          { value: '100%', label: 'Japanese Sourced', sub: 'Authentic origin' },
+          { value: 'No.1', label: 'Yakiniku Pattaya', sub: 'Top-rated BBQ' },
+          { value: '7', label: 'Menu Categories', sub: 'Something for all' },
+        ].map(stat => (
+          <div class="group">
+            <div class="font-oswald text-4xl md:text-5xl font-bold text-ember group-hover:text-shadow-ember transition-all duration-300">
+              {stat.value}
+            </div>
+            <div class="font-oswald text-washi text-sm tracking-widest uppercase mt-2">{stat.label}</div>
+            <div class="font-open-sans text-washi/40 text-xs mt-1">{stat.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CTA SECTION
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-charcoal relative overflow-hidden" aria-labelledby="cta-heading">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,transparent_60%)]" aria-hidden="true"></div>
+    <div class="absolute inset-0 opacity-5" style="background-image: url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\");" aria-hidden="true"></div>
+
+    <div class="relative max-w-3xl mx-auto text-center">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="h-px w-8 bg-ember"></div>
+        <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">Reserve Your Evening</span>
+        <div class="h-px w-8 bg-ember"></div>
+      </div>
+      <h2 id="cta-heading" class="section-heading text-4xl md:text-6xl text-washi mb-6">
+        Your Table<br /><span class="text-ember">Awaits</span>
+      </h2>
+      <div class="ember-divider"></div>
+      <p class="text-washi/60 mb-10 text-lg leading-relaxed">
+        Join us for an unforgettable evening of premium Wagyu, curated sake, and the warmth of authentic Japanese hospitality. Open daily from 17:00.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contact#reserve" class="btn-sake w-full sm:w-auto text-center text-base px-10 py-4">
+          Book a Table
+        </a>
+        <a href="tel:+6633640787" class="btn-outline w-full sm:w-auto text-center">
+          +66 33 640 787
+        </a>
+      </div>
+      <p class="text-washi/40 text-sm mt-6">
+        Tree Town, Pattaya 9 Alley · Open daily 17:00 – 23:00
+      </p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,129 @@
+---
+interface Props {
+  page?: string;
+}
+const { page = '' } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home', id: 'home' },
+  { href: '/menu', label: 'Menu', id: 'menu' },
+  { href: '/experience', label: 'Experience', id: 'experience' },
+  { href: '/contact', label: 'Contact', id: 'contact' },
+];
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+  <div class="header-bg absolute inset-0 bg-charcoal/0 backdrop-blur-none transition-all duration-300"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group" aria-label="Yakiniku SAWA Pattaya - Home">
+        <div class="w-10 h-10 border-2 border-ember flex items-center justify-center transition-all duration-300 group-hover:bg-ember group-hover:ember-glow">
+          <span class="font-oswald text-ember group-hover:text-charcoal text-lg font-bold transition-colors duration-300">S</span>
+        </div>
+        <div class="leading-tight">
+          <div class="font-oswald text-xl font-bold tracking-widest text-washi uppercase">SAWA</div>
+          <div class="font-open-sans text-[10px] tracking-[0.2em] text-ember uppercase">Yakiniku · Pattaya</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={['nav-link', { 'text-ember after:w-full': page === link.id }]}
+            aria-current={page === link.id ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA + Mobile Menu -->
+      <div class="flex items-center gap-4">
+        <a
+          href="/contact#reserve"
+          class="hidden sm:inline-flex btn-sake text-sm px-5 py-2"
+        >
+          Book Now
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-toggle"
+          class="md:hidden flex flex-col gap-1.5 p-2 group"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="w-6 h-0.5 bg-washi transition-all duration-300 group-aria-expanded:rotate-45 group-aria-expanded:translate-y-2"></span>
+          <span class="w-6 h-0.5 bg-washi transition-all duration-300 group-aria-expanded:opacity-0"></span>
+          <span class="w-6 h-0.5 bg-washi transition-all duration-300 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden bg-charcoal border-t border-ember/20"
+    aria-hidden="true"
+  >
+    <nav class="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4" aria-label="Mobile navigation">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={['font-oswald text-lg tracking-widest uppercase transition-colors duration-200 hover:text-ember', { 'text-ember': page === link.id, 'text-washi/80': page !== link.id }]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact#reserve" class="btn-sake text-center mt-2">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding behind fixed header -->
+<div class="h-20"></div>
+
+<script>
+  const header = document.getElementById('site-header');
+  const headerBg = header?.querySelector('.header-bg');
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Scroll-based header styling
+  function updateHeader() {
+    if (!header || !headerBg) return;
+    if (window.scrollY > 50) {
+      headerBg.classList.add('bg-charcoal/95', 'backdrop-blur-md');
+      headerBg.classList.remove('bg-charcoal/0', 'backdrop-blur-none');
+      header.classList.add('border-b', 'border-ember/20');
+    } else {
+      headerBg.classList.remove('bg-charcoal/95', 'backdrop-blur-md');
+      headerBg.classList.add('bg-charcoal/0', 'backdrop-blur-none');
+      header.classList.remove('border-b', 'border-ember/20');
+    }
+  }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile menu toggle
+  mobileToggle?.addEventListener('click', () => {
+    const isOpen = mobileToggle.getAttribute('aria-expanded') === 'true';
+    mobileToggle.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenu?.classList.toggle('hidden', isOpen);
+    mobileMenu?.setAttribute('aria-hidden', String(isOpen));
+  });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

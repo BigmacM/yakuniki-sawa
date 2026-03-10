@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const breadcrumbs = [{ name: 'Experience', url: '/experience' }];
+---
+
+<Layout
+  title="The Experience | Yakiniku SAWA Pattaya — Authentic Japanese Wagyu"
+  description="Discover how Yakiniku SAWA sources genuine A5-rank Japanese Wagyu, manages smoke for a refined dining environment, and crafts an unforgettable Yakiniku experience in Pattaya."
+  breadcrumbs={breadcrumbs}
+  page="experience"
+>
+  <!-- Page Hero -->
+  <section class="relative py-24 md:py-36 bg-charcoal overflow-hidden" aria-label="Experience hero">
+    <div class="absolute inset-0" aria-hidden="true">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.08)_0%,transparent_60%)]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <nav aria-label="Breadcrumb" class="mb-8">
+        <ol class="flex items-center gap-2 text-xs font-open-sans text-washi/40">
+          <li><a href="/" class="hover:text-ember transition-colors">Home</a></li>
+          <li aria-hidden="true"><span>/</span></li>
+          <li class="text-ember" aria-current="page">Experience</li>
+        </ol>
+      </nav>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-px w-8 bg-ember"></div>
+        <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">The Art of Yakiniku</span>
+      </div>
+      <h1 class="section-heading text-5xl md:text-7xl text-washi mb-4 leading-none">
+        The <span class="text-ember">SAWA</span><br />Experience
+      </h1>
+      <div class="ember-divider ml-0"></div>
+      <p class="text-washi/60 text-lg max-w-2xl leading-relaxed">
+        An immersive journey into the heart of Japanese Yakiniku culture — where ancient tradition meets modern perfection.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WAGYU SOURCING
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-ink" aria-labelledby="sourcing-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="h-px w-8 bg-ember"></div>
+            <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">The Wagyu</span>
+          </div>
+          <h2 id="sourcing-heading" class="section-heading text-4xl md:text-5xl text-washi mb-6 leading-tight">
+            Real Japanese<br /><span class="text-ember">A5-Rank Wagyu</span>
+          </h2>
+          <div class="ember-divider ml-0"></div>
+          <div class="space-y-5 text-washi/70 leading-relaxed">
+            <p>
+              The word "Wagyu" is not simply a marketing term — it is a promise. At SAWA, we source exclusively from certified Japanese Wagyu farms where cattle are raised for a minimum of 26 months with meticulous care, including special diets, stress-free environments, and generational breeding expertise.
+            </p>
+            <p>
+              Our Premium Wagyu carries the coveted <strong class="text-ember">A5 designation</strong> — the highest grade achievable in Japan's rigorous grading system. This means our beef scores a perfect 5 in both yield grade (A) and meat quality, encompassing marbling, color, firmness, and fat quality.
+            </p>
+            <p>
+              The result is a beef unlike any other: intensely marbled, with a melt-in-the-mouth texture and a rich, complex flavor profile that reveals itself gradually as the fat renders over the live fire of our grills.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { src: '/images/food/wagyu-marbling-1.jpg', alt: 'A5 Wagyu beef with exceptional marbling', label: 'A5 Marbling' },
+            { src: '/images/food/wagyu-cuts.jpg', alt: 'Premium Wagyu cuts on display', label: 'Premium Cuts' },
+            { src: '/images/food/wagyu-grill.jpg', alt: 'Wagyu sizzling on the grill', label: 'On the Grill' },
+            { src: '/images/food/wagyu-plated.jpg', alt: 'Beautifully plated Wagyu at SAWA', label: 'Plated' },
+          ].map(item => (
+            <div class="aspect-square bg-charcoal card-ink overflow-hidden group relative">
+              <img
+                src={item.src}
+                alt={item.alt}
+                class="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent flex items-end p-3">
+                <span class="font-oswald text-ember text-xs tracking-widest uppercase">{item.label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WAGYU GRADES EXPLAINER
+  ══════════════════════════════════════════════════ -->
+  <section class="py-20 px-4 sm:px-6 bg-charcoal" aria-labelledby="grades-heading">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 id="grades-heading" class="section-heading text-3xl md:text-4xl text-washi">
+          Understanding <span class="text-ember">A5 Wagyu</span>
+        </h2>
+        <div class="ember-divider"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            grade: 'Yield',
+            value: 'A',
+            description: 'The highest yield grade, indicating the most efficient ratio of usable meat to total carcass weight. Grade A represents the top 15% of all Wagyu cattle.',
+          },
+          {
+            grade: 'Quality',
+            value: '5',
+            description: 'The pinnacle of meat quality. Scored across four criteria: marbling (BMS 8-12), meat color & brightness, firmness & texture, and fat color & quality.',
+          },
+          {
+            grade: 'BMS',
+            value: '10+',
+            description: 'Beef Marbling Standard. Our A5 Wagyu typically scores BMS 10-12 — the highest levels, resulting in the characteristic snowflake-like fat distribution.',
+          },
+        ].map(item => (
+          <div class="card-ink p-8 text-center group hover:border-ember/60 transition-all duration-300">
+            <div class="font-oswald text-5xl font-bold text-ember mb-2 group-hover:text-shadow-ember transition-all duration-300">
+              {item.value}
+            </div>
+            <div class="font-oswald text-washi text-lg tracking-widest uppercase mb-4">{item.grade}</div>
+            <div class="ember-divider my-4"></div>
+            <p class="text-washi/60 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SMOKE MANAGEMENT
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-ink" aria-labelledby="smoke-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative order-2 lg:order-1">
+          <div class="aspect-[4/3] bg-charcoal card-ink overflow-hidden">
+            <img
+              src="/images/experience/smoke-system.jpg"
+              alt="SAWA's advanced smoke management ventilation system"
+              class="w-full h-full object-cover opacity-80"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <!-- Accent box -->
+          <div class="absolute -bottom-6 -right-6 bg-ember/10 border border-ember/30 p-6 max-w-[200px]">
+            <div class="font-oswald text-ember text-3xl font-bold">0</div>
+            <div class="font-oswald text-washi text-sm tracking-widest uppercase">Smoke Odor</div>
+            <div class="font-open-sans text-washi/50 text-xs mt-1">After dining</div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="h-px w-8 bg-ember"></div>
+            <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">The Environment</span>
+          </div>
+          <h2 id="smoke-heading" class="section-heading text-4xl md:text-5xl text-washi mb-6 leading-tight">
+            Smoke-Managed<br /><span class="text-ember">Environment</span>
+          </h2>
+          <div class="ember-divider ml-0"></div>
+          <div class="space-y-5 text-washi/70 leading-relaxed">
+            <p>
+              One of the greatest concerns with traditional Yakiniku dining is smoke — both from a comfort and an aesthetic perspective. At SAWA, we have invested in a state-of-the-art individual table ventilation system that captures smoke at the source.
+            </p>
+            <p>
+              Each table features a built-in smoke extraction system positioned directly above the grill. This ensures that the enticing aroma of sizzling Wagyu fills your immediate dining area while preventing smoke from permeating clothing, hair, or the wider restaurant.
+            </p>
+            <p>
+              You can indulge in the full, theatrical experience of watching premium Wagyu render and caramelize on the grill — without a single concern about leaving with smoke on your clothes.
+            </p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            {[
+              { icon: '💨', label: 'Table-level extraction' },
+              { icon: '✨', label: 'Crystal-clear air' },
+              { icon: '👔', label: 'No odor on clothes' },
+              { icon: '🌿', label: 'Comfortable for all' },
+            ].map(feature => (
+              <div class="flex items-center gap-3 text-washi/70 text-sm">
+                <span class="text-xl" aria-hidden="true">{feature.icon}</span>
+                <span class="font-open-sans">{feature.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       THE ART OF YAKINIKU
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-charcoal" aria-labelledby="art-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <div class="h-px w-8 bg-ember"></div>
+          <span class="font-open-sans text-ember text-xs tracking-[0.3em] uppercase">Ancient Craft</span>
+          <div class="h-px w-8 bg-ember"></div>
+        </div>
+        <h2 id="art-heading" class="section-heading text-4xl md:text-5xl text-washi">
+          The Art of <span class="text-ember">Yakiniku</span>
+        </h2>
+        <div class="ember-divider"></div>
+        <p class="text-washi/60 max-w-2xl mx-auto leading-relaxed">
+          Yakiniku — literally "grilled meat" — is not just a cuisine. It is a communal ritual, a meditative practice, and a celebration of the finest beef the world has to offer.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            step: '01',
+            title: 'Select Your Cut',
+            description: 'Our knowledgeable staff guide you through each cut\'s unique characteristics — the richness of KARUBI rib cuts, the lean intensity of ROSU loin, or the rare complexity of MISUJI top blade.',
+            icon: '🥩',
+          },
+          {
+            step: '02',
+            title: 'The Grill',
+            description: 'Thin-sliced Wagyu is placed on a hot grill — gas or charcoal — where the marbled fat begins to render within seconds. The heat caramelizes the surface while keeping the interior impossibly tender.',
+            icon: '🔥',
+          },
+          {
+            step: '03',
+            title: 'The Moment',
+            description: 'Lifted at the precise moment — when the exterior glistens with rendered fat and the interior remains a gentle pink — and dipped in our house-made tare sauce or simply seasoned with salt.',
+            icon: '✨',
+          },
+        ].map(item => (
+          <div class="text-center card-ink p-8 group hover:border-ember/60 transition-all duration-300">
+            <div class="text-4xl mb-4" aria-hidden="true">{item.icon}</div>
+            <div class="font-oswald text-ember/40 text-5xl font-bold mb-2 group-hover:text-ember/60 transition-colors duration-300">
+              {item.step}
+            </div>
+            <h3 class="font-oswald text-washi text-xl tracking-widest uppercase mb-4 group-hover:text-ember transition-colors duration-300">
+              {item.title}
+            </h3>
+            <div class="ember-divider my-4"></div>
+            <p class="text-washi/60 text-sm leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       INTERIOR GALLERY
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-ink" aria-labelledby="gallery-heading">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 id="gallery-heading" class="section-heading text-3xl md:text-4xl text-washi">
+          Our <span class="text-ember">Space</span>
+        </h2>
+        <div class="ember-divider"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { src: '/images/experience/interior-main.jpg', alt: 'Main dining hall of SAWA Pattaya', span: 'lg:col-span-2 lg:row-span-2' },
+          { src: '/images/experience/interior-detail.jpg', alt: 'Elegant table setting at SAWA' },
+          { src: '/images/experience/bar.jpg', alt: 'SAWA sake bar' },
+          { src: '/images/experience/private.jpg', alt: 'Private dining room' },
+          { src: '/images/experience/entrance.jpg', alt: 'SAWA restaurant entrance' },
+        ].map(item => (
+          <div class:list={['relative bg-charcoal card-ink overflow-hidden group aspect-square', item.span]}>
+            <img
+              src={item.src}
+              alt={item.alt}
+              class="w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 px-4 sm:px-6 bg-charcoal text-center relative overflow-hidden" aria-labelledby="exp-cta-heading">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_60%)]" aria-hidden="true"></div>
+    <div class="relative max-w-3xl mx-auto">
+      <h2 id="exp-cta-heading" class="section-heading text-4xl md:text-5xl text-washi mb-4">
+        Experience It <span class="text-ember">Yourself</span>
+      </h2>
+      <div class="ember-divider"></div>
+      <p class="text-washi/60 mb-10 text-lg leading-relaxed">
+        Words can only convey so much. Reserve your evening at SAWA and let the experience speak for itself.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contact#reserve" class="btn-sake w-full sm:w-auto text-center">Reserve Now</a>
+        <a href="/menu" class="btn-outline w-full sm:w-auto text-center">Explore Menu</a>
+      </div>
+    </div>
+  </section>
+</Layout>
