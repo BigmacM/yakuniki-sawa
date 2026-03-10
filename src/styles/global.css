@@ -91,13 +91,14 @@
   }
 }
 
-/* Hero video overlay */
+/* Hero video overlay — darkened for legibility over bright photos */
 .hero-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(26, 26, 26, 0.3) 0%,
-    rgba(26, 26, 26, 0.5) 50%,
-    rgba(26, 26, 26, 0.9) 100%
+    rgba(26, 26, 26, 0.55) 0%,
+    rgba(26, 26, 26, 0.75) 40%,
+    rgba(26, 26, 26, 0.85) 70%,
+    rgba(26, 26, 26, 0.95) 100%
   );
 }
 

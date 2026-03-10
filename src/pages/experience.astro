@@ -76,16 +76,13 @@ function img(folder: string, filename: string): string {
             { src: img('food', 'wagyu-grill.jpg'),    alt: 'Wagyu sizzling on the grill',             label: 'On the Grill' },
             { src: img('food', 'wagyu-plated.jpg'),   alt: 'Beautifully plated Wagyu at SAWA',        label: 'Plated' },
           ].map(item => (
-            <div class="aspect-square bg-charcoal card-ink overflow-hidden group relative">
+            <div class="aspect-square bg-charcoal card-ink overflow-hidden group">
               <img
                 src={item.src}
                 alt={item.alt}
                 class="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent flex items-end p-3">
-                <span class="font-oswald text-ember text-xs tracking-widest uppercase">{item.label}</span>
-              </div>
             </div>
           ))}
         </div>
@@ -152,10 +149,10 @@ function img(folder: string, filename: string): string {
             />
           </div>
           <!-- Accent box -->
-          <div class="absolute -bottom-6 -right-6 bg-ember/10 border border-ember/30 p-6 max-w-[200px]">
+          <div class="absolute -bottom-6 -right-6 bg-charcoal border border-ember/50 p-6 max-w-[200px]">
             <div class="font-oswald text-ember text-3xl font-bold">0</div>
             <div class="font-oswald text-washi text-sm tracking-widest uppercase">Smoke Odor</div>
-            <div class="font-open-sans text-washi/50 text-xs mt-1">After dining</div>
+            <div class="font-open-sans text-washi/70 text-xs mt-1">After dining</div>
           </div>
         </div>
 
