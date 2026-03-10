@@ -314,12 +314,11 @@ function img(folder: string, filename: string): string {
   <section class="py-20 px-4 sm:px-6 bg-ink border-y border-ember/20" aria-labelledby="stats-heading">
     <div class="max-w-5xl mx-auto">
       <h2 id="stats-heading" class="sr-only">Why Choose SAWA</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="grid grid-cols-3 gap-8 text-center">
         {[
           { value: 'A5', label: 'Wagyu Grade', sub: 'Highest possible' },
           { value: '100%', label: 'Japanese Sourced', sub: 'Authentic origin' },
           { value: 'No.1', label: 'Yakiniku Pattaya', sub: 'Top-rated BBQ' },
-          { value: '7', label: 'Menu Categories', sub: 'Something for all' },
         ].map(stat => (
           <div class="group">
             <div class="font-oswald text-4xl md:text-5xl font-bold text-ember group-hover:text-shadow-ember transition-all duration-300">
