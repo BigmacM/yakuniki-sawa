@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-charcoal text-washi overflow-x-hidden;
+    font-family: 'Open Sans', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+  }
+}
+
+@layer components {
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 26, 0.55) 0%,
+      rgba(26, 26, 26, 0.75) 40%,
+      rgba(26, 26, 26, 0.85) 70%,
+      rgba(26, 26, 26, 0.95) 100%
+    );
+  }
+
+  .section-divider {
+    @apply border-t border-ember/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ember text-charcoal px-8 py-3 font-bold tracking-wider uppercase text-sm hover:bg-amber-400 transition-all duration-300;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-ember text-ember px-8 py-3 font-bold tracking-wider uppercase text-sm hover:bg-ember hover:text-charcoal transition-all duration-300;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .section-tag {
+    @apply text-ember text-sm tracking-widest uppercase block;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .section-title {
+    @apply text-washi font-bold;
+    font-family: 'Oswald', sans-serif;
+  }
+}

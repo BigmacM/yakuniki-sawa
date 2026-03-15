@@ -1,4 +1,6 @@
 # Build output
+.next/
+out/
 dist/
 .astro/
 
