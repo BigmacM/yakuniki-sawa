@@ -146,15 +146,18 @@ export default function HomePage() {
       {/* Experience Story */}
       <section className="bg-ink py-24">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="grid grid-cols-2 gap-3">
-            {experienceImages.map((src, i) => (
-              <div
-                key={i}
-                className={`relative overflow-hidden ${i === 0 ? 'row-span-2 aspect-[3/4]' : 'aspect-square'}`}
-              >
-                <Image src={src} alt={`Yakiniku SAWA interior ${i + 1}`} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="grid grid-cols-2 gap-3 h-[480px]">
+            {/* Tall left image */}
+            <div className="relative overflow-hidden row-span-2">
+              <Image src={experienceImages[0]} alt="Yakiniku SAWA interior 1" fill className="object-cover" />
+            </div>
+            {/* Two stacked right images */}
+            <div className="relative overflow-hidden">
+              <Image src={experienceImages[1]} alt="Yakiniku SAWA interior 2" fill className="object-cover" />
+            </div>
+            <div className="relative overflow-hidden">
+              <Image src={experienceImages[2]} alt="Yakiniku SAWA interior 3" fill className="object-cover" />
+            </div>
           </div>
           <div>
             <p className="section-tag mb-4">Our Story</p>
