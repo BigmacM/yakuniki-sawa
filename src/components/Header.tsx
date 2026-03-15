@@ -56,8 +56,8 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-oswald text-sm tracking-widest uppercase transition-colors duration-200 ${
-                  pathname === link.href ? 'text-ember' : 'text-washi/80 hover:text-ember'
+                className={`nav-underline font-oswald text-sm tracking-widest uppercase transition-colors duration-200 ${
+                  pathname === link.href ? 'text-ember active' : 'text-washi/80 hover:text-ember'
                 }`}
               >
                 {link.label}

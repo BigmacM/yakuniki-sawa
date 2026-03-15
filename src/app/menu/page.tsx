@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { menuCategories } from '@/data/menu';
 import MenuGallery from '@/components/MenuGallery';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'Our Menu',
@@ -44,29 +45,34 @@ export default function MenuPage() {
             priority
           />
           <div className="hero-overlay absolute inset-0" />
+          <div className="ember-glow-overlay absolute inset-0" />
         </div>
         <div className="relative z-10 text-center px-4">
-          <p className="section-tag mb-3">Curated with Care</p>
-          <h1 className="font-oswald text-5xl md:text-6xl font-bold text-washi">Our Menu</h1>
+          <p className="animate-fade-in section-tag mb-3">Curated with Care</p>
+          <h1 className="animate-slide-up font-oswald text-5xl md:text-6xl font-bold text-washi">
+            Our <span className="text-ember text-glow-ember">Menu</span>
+          </h1>
         </div>
       </section>
 
       {/* Gallery */}
       <section className="py-20 px-4 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <p className="section-tag mb-3">Photo Gallery</p>
           <h2 className="section-title text-3xl md:text-4xl">What Awaits You</h2>
-        </div>
+          <div className="ember-divider" />
+        </ScrollReveal>
         <MenuGallery images={galleryImages} />
       </section>
 
       {/* Menu Categories */}
       <section className="bg-ink py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
+          <ScrollReveal className="text-center mb-10">
             <p className="section-tag mb-3">Full Menu</p>
             <h2 className="section-title text-3xl md:text-4xl">All Categories</h2>
-          </div>
+            <div className="ember-divider" />
+          </ScrollReveal>
 
           {/* Sticky category nav */}
           <div className="sticky top-20 z-30 bg-ink/95 backdrop-blur-sm -mx-4 px-4 py-3 mb-10 border-b border-ember/20">
@@ -141,9 +147,12 @@ export default function MenuPage() {
       </section>
 
       {/* Reservation CTA */}
-      <section className="py-16 px-4 text-center bg-charcoal">
+      <section className="py-16 px-4 text-center bg-charcoal relative overflow-hidden">
+        <div className="ember-glow-overlay absolute inset-0 opacity-50" />
+        <div className="relative z-10">
         <p className="section-tag mb-3">Ready to Order?</p>
-        <h2 className="section-title text-3xl md:text-4xl mb-6">Book Your Table</h2>
+        <h2 className="section-title text-3xl md:text-4xl mb-2">Book Your Table</h2>
+        <div className="ember-divider mb-6" />
         <a
           href="https://wa.me/66818258899?text=Hello%20I%20would%20like%20to%20make%20a%20reservation"
           target="_blank"
@@ -152,6 +161,7 @@ export default function MenuPage() {
         >
           Reserve via WhatsApp
         </a>
+        </div>
       </section>
     </>
   );
