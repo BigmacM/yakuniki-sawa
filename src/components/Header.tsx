@@ -44,7 +44,7 @@ export default function Header() {
               height={40}
               className="h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
             />
-            <div className="hidden sm:block">
+            <div>
               <div className="font-oswald text-washi text-lg font-bold tracking-wider leading-tight">YAKINIKU SAWA</div>
               <div className="font-open-sans text-ember text-xs tracking-widest uppercase">Pattaya</div>
             </div>

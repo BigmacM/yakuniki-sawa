@@ -106,8 +106,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="section-divider mt-10 pt-6 text-center font-open-sans text-washi/30 text-xs">
-          © {new Date().getFullYear()} Yakiniku SAWA Pattaya. All rights reserved.
+        <div className="section-divider mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 font-open-sans text-washi/30 text-xs">
+          <span>© {new Date().getFullYear()} Yakiniku SAWA Pattaya. All rights reserved.</span>
+          <span>
+            Website by{' '}
+            <a
+              href="https://nikamarketing.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ember transition-colors"
+            >
+              Nika Marketing
+            </a>
+          </span>
         </div>
       </div>
     </footer>

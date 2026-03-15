@@ -44,8 +44,8 @@ export default function Lightbox({ images, index, onClose, onPrev, onNext }: Lig
       />
 
       {/* Image */}
-      <div className="relative w-full h-full flex items-center justify-center p-4">
-        <div className="relative max-w-5xl max-h-[80vh] w-full h-full">
+      <div className="absolute inset-0 flex items-center justify-center p-16">
+        <div className="relative w-full h-full max-w-5xl">
           <Image
             src={images[index].src}
             alt={images[index].label}
